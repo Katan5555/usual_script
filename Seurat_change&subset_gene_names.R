@@ -32,12 +32,11 @@ rownames(project@assays$RNA@meta.features) <- new_gene_names
 
 
 # add cell type names 
-sample_info <- read.csv("/Users/i0535027/Documents/Sanofi/DATABASE/SingleCell/MM/DATASET_Cho_Kim/DATA/GSE155795_metadata_1656537305789.tsv",check.names = F,sep="\t")
-sample_info <- sample_info[grep("GSM4743044_Pt1",sample_info$Barcodes), ]
+sample_info <- read.csv("metadata.tsv",check.names = F,sep="\t")
+sample_info <- sample_info[grep("Patient_1",sample_info$Barcodes), ]
 sample_info$Barcodes <- vapply(strsplit( sample_info$Barcodes , split="[_]"), "[", "", 3)
 rownames(sample_info) <- sample_info$Barcodes  
 sample_info <- sample_info[colnames(project), ]
-sample_info$`Author's cell type`[is.na(sample_info$`Author's cell type`)==T] <- "other"
 
 head( testdata@meta.data )
 testdata@active.ident
