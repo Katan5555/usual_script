@@ -7,6 +7,7 @@ barcodes <- data.frame(colnames(mat))
 write.table(barcodes, file=gzfile(paste0(path_data,"/seurat/barcodes.tsv.gz")),col.names = FALSE,row.names=FALSE, sep="\t")
 
 features <- data.frame(rownames(mat))
+features <- cbind(features,features)
 write.table(features, file=gzfile(paste0(path_data,"/seurat/features.tsv.gz")),col.names = FALSE,row.names=FALSE, sep="\t")
  
 
