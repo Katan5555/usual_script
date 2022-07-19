@@ -8,6 +8,8 @@ ptms = import_Omnipath_PTMS(filter_databases=c("PhosphoSite", "Signor"))
 
 # Download protein-protein interactions
 interactions = import_Omnipath_Interactions(filter_databases=c("SignaLink3"))
+# import all interactions
+interactions = import_AllInteractions()
 
 # Convert to igraph objects:
 ptms_g = ptms_graph(ptms = ptms )
